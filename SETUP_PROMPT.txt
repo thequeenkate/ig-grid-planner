@@ -1,0 +1,10 @@
+I want to set up the IG Grid Planner from https://github.com/thequeenkate/ig-grid-planner on my computer.
+
+Please:
+1. Clone that repository into a new folder called ig-grid-planner in my home directory.
+2. Install its dependencies.
+3. Read the repo's CLAUDE.md file and follow its security rules for the rest of this session.
+4. Help me create a .env.local file. Ask me for my Notion integration token and my Notion database ID one at a time, tell me in plain English exactly where to find each one, and never print, log, echo, or repeat the values back to me once I've entered them — just confirm they've been saved.
+5. Once .env.local is filled in, start the app and tell me the exact link to open in my browser.
+
+If anything fails, explain what went wrong in plain English (no jargon) and what I should do next.

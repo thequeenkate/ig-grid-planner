@@ -18,7 +18,7 @@ Part of the **IG Grid Planner Kit**. The kit's playbook walks you through the fu
 3. Copy `.env.example` to `.env.local` and fill in `NOTION_TOKEN` and `NOTION_SOCIAL_CALENDAR_DB`
 4. `npm install && npm run dev`, then open [http://localhost:3000](http://localhost:3000)
 
-Not sure how to do any of that? That's what the playbook + Claude Code are for — paste the setup prompt from the playbook into Claude Code and it walks you through everything.
+Not sure how to do any of that? That's what the playbook + Claude Code are for. After duplicating the Notion template, install Claude Code and paste the contents of [SETUP_PROMPT.txt](SETUP_PROMPT.txt) into it — it clones this repo, wires up your `.env.local`, and starts the app for you.
 
 ## Troubleshooting
 
