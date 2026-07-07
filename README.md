@@ -1,15 +1,15 @@
 # IG Grid Planner
 
-Plan your Instagram feed from your Notion content calendar. A 3-column grid preview of what your feed will look like, plus a drag-and-drop calendar to schedule posts — every change writes straight back to Notion.
+Plan your Instagram feed from your Notion content calendar. A 3-column grid preview of what your feed will look like, plus a drag-and-drop calendar to schedule posts. Every change writes straight back to Notion.
 
 Part of the **IG Grid Planner Kit**. The kit's playbook walks you through the full setup step by step (including installing Claude Code, which does most of the work for you) and includes a duplicatable Notion template with the exact database this app expects.
 
 ## What it does
 
-- **Feed preview** — your scheduled + staged posts as a 3-column portrait grid, using each post's cover photo from Notion
-- **Drag-and-drop scheduling** — drag a staged post onto a calendar day and the publish date is saved to Notion; drag between days to reschedule; every change has an 8-second undo
-- **Staging area** — posts that are in progress but not yet dated
-- **Optional live feed** — your 12 most recent real Instagram posts under the preview (needs a Meta API token; skip on first setup)
+- **Feed preview**: your scheduled + staged posts as a 3-column portrait grid, using each post's cover photo from Notion
+- **Drag-and-drop scheduling**: drag a staged post onto a calendar day and the publish date is saved to Notion; drag between days to reschedule; every change has an 8-second undo
+- **Staging area**: posts that are in progress but not yet dated
+- **Optional live feed**: your 12 most recent real Instagram posts under the preview (needs a Meta API token; skip on first setup)
 
 ## Quick start
 
@@ -18,7 +18,7 @@ Part of the **IG Grid Planner Kit**. The kit's playbook walks you through the fu
 3. Copy `.env.example` to `.env.local` and fill in `NOTION_TOKEN` and `NOTION_SOCIAL_CALENDAR_DB`
 4. `npm install && npm run dev`, then open [http://localhost:3000](http://localhost:3000)
 
-Not sure how to do any of that? That's what the playbook + Claude Code are for. After duplicating the Notion template, install Claude Code and paste the contents of [SETUP_PROMPT.txt](SETUP_PROMPT.txt) into it — it clones this repo, wires up your `.env.local`, and starts the app for you.
+Not sure how to do any of that? That's what the playbook + Claude Code are for. After duplicating the Notion template, install Claude Code and paste the contents of [SETUP_PROMPT.txt](SETUP_PROMPT.txt) into it. It clones this repo, wires up your `.env.local`, and starts the app for you.
 
 ## Troubleshooting
 
@@ -28,7 +28,7 @@ Not sure how to do any of that? That's what the playbook + Claude Code are for. 
 
 ## Deploying online (optional)
 
-Runs anywhere Next.js runs (e.g. Vercel). If you deploy, set `APP_PASSWORD` in your host's environment variables so your planner isn't public — the app asks for that password before showing anything.
+Runs anywhere Next.js runs (e.g. Vercel). If you deploy, set `APP_PASSWORD` in your host's environment variables so your planner isn't public. The app asks for that password before showing anything.
 
 ## Security
 
