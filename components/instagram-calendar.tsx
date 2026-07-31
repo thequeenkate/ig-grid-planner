@@ -7,9 +7,11 @@ import type { Post } from './instagram-grid'
 interface Props {
   posts: Post[]
   onReschedule: (postId: string, date: string | null) => void
+  isMobile?: boolean
 }
 
 const MONTHS_SHOWN = 4
+const MONTHS_SHOWN_MOBILE = 2
 const WEEKDAYS = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
 
 function parseLocalDate(str: string): Date {
@@ -17,13 +19,14 @@ function parseLocalDate(str: string): Date {
   return new Date(y, m - 1, d)
 }
 
-export function InstagramCalendar({ posts: allPosts, onReschedule }: Props) {
+export function InstagramCalendar({ posts: allPosts, onReschedule, isMobile }: Props) {
   const [startMonth, setStartMonth] = useState(() => startOfMonth(new Date()))
   const [dragOverDay, setDragOverDay] = useState<string | null>(null)
   const [draggingId, setDraggingId] = useState<string | null>(null)
   const monthRefs = useRef<Record<string, HTMLDivElement | null>>({})
 
-  const months = Array.from({ length: MONTHS_SHOWN }, (_, i) => addMonths(startMonth, i))
+  const monthsShown = isMobile ? MONTHS_SHOWN_MOBILE : MONTHS_SHOWN
+  const months = Array.from({ length: monthsShown }, (_, i) => addMonths(startMonth, i))
   const scheduled = allPosts.filter(p => p.isLocked && p.igPublish)
   const unscheduled = allPosts.filter(p => !p.isLocked)
 
