@@ -180,6 +180,10 @@ export default function PlannerPage() {
         isMobile ? (
           <div style={{ padding: '20px 16px 40px', display: 'flex', flexDirection: 'column', gap: 32 }}>
             <div>
+              <p style={{ fontSize: 10, color: '#8A8070', fontFamily: 'Jost, sans-serif', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: 12 }}>Schedule</p>
+              <InstagramCalendar posts={posts} onReschedule={handleReschedule} />
+            </div>
+            <div>
               <p style={{ fontSize: 10, color: '#8A8070', fontFamily: 'Jost, sans-serif', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: 12 }}>Feed Preview</p>
               <InstagramGrid posts={posts} />
               {livePosts.length > 0 && (
@@ -215,10 +219,6 @@ export default function PlannerPage() {
                   </div>
                 </>
               )}
-            </div>
-            <div>
-              <p style={{ fontSize: 10, color: '#8A8070', fontFamily: 'Jost, sans-serif', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: 12 }}>Schedule</p>
-              <InstagramCalendar posts={posts} onReschedule={handleReschedule} />
             </div>
           </div>
         ) : (
