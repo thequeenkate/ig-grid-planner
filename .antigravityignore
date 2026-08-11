@@ -1,0 +1,49 @@
+# AI agent context exclusions (Antigravity / Gemini Code Assist).
+# Same syntax as .gitignore. Does NOT affect git.
+
+# === Secrets — never let an agent read these ===
+.env
+.env.*
+!.env.example
+!.env.sample
+*.pem
+*.key
+*.p12
+*.pfx
+*.keystore
+*.jks
+id_rsa
+id_ed25519
+secrets/
+credentials.json
+client_secret*.json
+service-account*.json
+firebase-adminsdk*.json
+gha-creds-*.json
+token.json
+*token*.json
+.netrc
+.npmrc
+.pypirc
+.aws/
+.gcloud/
+.ssh/
+*.sqlite
+*.db
+
+# === Noise / token wasters ===
+node_modules/
+.next/
+dist/
+build/
+out/
+coverage/
+.venv/
+venv/
+__pycache__/
+.cache/
+.turbo/
+*.log
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
