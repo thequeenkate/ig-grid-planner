@@ -209,15 +209,6 @@ export function InstagramCalendar({ posts: allPosts, onReschedule, isMobile }: P
                               {post.title || 'Post'}
                             </div>
                           )}
-
-                          <button
-                            onClick={e => { e.stopPropagation(); onReschedule(post.id, null) }}
-                            title="Remove from calendar"
-                            className="unschedule-btn"
-                            style={{ position: 'absolute', top: 1, right: 1, width: 12, height: 12, background: 'rgba(33,29,24,0.7)', border: 'none', borderRadius: 2, cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', opacity: 0, transition: 'opacity 0.15s', padding: 0, lineHeight: 1, fontSize: 9, color: '#fff' }}
-                          >
-                            ×
-                          </button>
                         </div>
                       ))}
 
@@ -269,11 +260,6 @@ export function InstagramCalendar({ posts: allPosts, onReschedule, isMobile }: P
           </p>
         </div>
       )}
-
-      <style>{`
-        [draggable]:hover .unschedule-btn { opacity: 1 !important; }
-        div:hover > div > .unschedule-btn { opacity: 1 !important; }
-      `}</style>
 
     </div>
   )
