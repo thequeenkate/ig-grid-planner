@@ -9,6 +9,8 @@ export interface Post {
   igStatus: string
   pipeline: string
   format: string
+  formats: string[]
+  isTrial: boolean
   igPublish: string | null
   coverPhoto: string | null
   pillar: string

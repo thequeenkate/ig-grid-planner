@@ -28,21 +28,35 @@ A Next.js app that shows the user's Notion content calendar as an Instagram grid
 
 ## Required Notion database properties
 
-The database ID goes in `NOTION_SOCIAL_CALENDAR_DB`. Property names must match exactly:
+The database ID goes in `NOTION_SOCIAL_CALENDAR_DB`. The planner reads the database's
+own column list at request time, so names are matched case-insensitively and several
+property types are accepted. Only the first three are required.
+
+**Required. The planner returns a named error if any is missing:**
 
 | Property | Type | Used for |
 |---|---|---|
-| `Name` | Title | Post title |
-| `IG Status` | Select | Post shows only when set (and hidden when `done`) |
-| `Pipeline` | Select | Staging posts hidden when `not-started`, `done`, or empty |
-| `Format` | Select | Post format label |
-| `IG Publish` | Date | Scheduled date, the planner writes this |
-| `CoverPhoto` | Files & media | The grid image (first file) |
-| `Pillars` | Multi-select | Content pillar |
-| `Series` | Text | Series label |
-| `Sort Order` | Number | Optional, staging order, lower number first |
+| `Name` or `Title` | Title | Post title. Any title property works |
+| `IG Publish` | Date | Scheduled date. The only property the planner writes |
+| `CoverPhoto` or `Cover Photo` | Files & media | The grid image (first file) |
 
-If the user renamed a property in Notion, either rename it back or update the matching name in `app/api/notion/content/route.ts`.
+**Optional. Each one is skipped entirely when the column is absent:**
+
+| Property | Type | Used for |
+|---|---|---|
+| `Platform` | Multi-select | When present, only rows tagged `IG` or `Instagram` are shown |
+| `IG Status` or `IG/Video Status` | Select or Status | Row hidden when `done`. Staging rows need it set |
+| `Pipeline` | Select or Status | Staging rows hidden when empty, `not-started`, `not-started/idea`, `idea`, or `done` |
+| `Format` or `Format (IG)` | Select or Multi-select | Post format label. `Trial Reel` is flagged |
+| `Pillars` or `Pillar` | Select or Multi-select | Content pillar |
+| `Series` | Text | Series label |
+| `Sort Order` | Number | Staging order, lower number first. Defaults to 999 |
+
+Rows are fetched in two queries: dated rows from the last 60 days onward, and undated
+rows for staging. Each query pages up to 5 times, so 500 rows per bucket.
+
+Do not hard-code a single workspace's spelling into
+`app/api/notion/content/route.ts`. Add a name to the candidate list in `find()` instead.
 
 ## Common tasks
 
